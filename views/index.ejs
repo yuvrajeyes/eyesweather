@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>eyesweather</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/office/16/000000/sunset--v2.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <header><a href="/">mWeather</a></header>
+    <div class="container">
+      <div id="field">
+        <form action="/" method="post">
+          <input
+            name="city"
+            type="text"
+            placeholder="Enter a City"
+            required
+          />
+          <input type="submit" value="Get Weather" />
+        </form>
+      </div>
+      <%if( weather !== null){ %>
+      <div class="card">
+        <p class="place"><%= place %></p>
+        <p class="timezone"><%= timezone %></p>
+      </div>
+
+      <div class="grid">
+        <div class="grid-ascent" style="max-width: 18rem">
+          <div class="grid-header">Summary</div>
+          <div class="grid-body">
+            <img src="<%= icon %>" alt="Weather-Icon" />
+            <h5 class="grid-title">Temperature</h5>
+            <p class="grid-text">
+              In Degrees: <%= temp %>°C/ <%= fahrenheit %>°F
+            </p>
+            <h5 class="grid-title">Main</h5>
+            <p class="grid-text"><%= main %></p>
+          </div>
+        </div>
+
+        
+        <div class="grid-ascent" style="max-width: 18rem">
+          <div class="grid-header">Description</div>
+          <div class="grid-body">
+            <h5 class="grid-title">Overall Description:</h5>
+            <p class="grid-text"><%= description %></p>
+            <h5 class="grid-title">Cloud coverage:</h5>
+            <p class="grid-text"><%= clouds %>%</p>
+            <h5 class="grid-title">Wind:</h5>
+            <p class="grid-text"><%= wind_speed %> KM/H (<%= wind_direction%>)</p>
+          </div>
+        </div>
+        
+        <div class="grid-ascent" style="max-width: 18rem">
+          <div class="grid-header">Other info</div>
+          <div class="grid-body">
+            <h5 class="grid-title">Humidity:</h5>
+            <p class="grid-text"><%= humidity %> g.m-3</p>
+          </div>
+          <div class="grid-body">
+            <h5 class="grid-title">Pressure:</h5>
+            <p class="grid-text"><%= pressure %> N·m−2</p>
+          </div>
+          <div class="grid-body">
+            <h5 class="grid-title">Visibility:</h5>
+            <p class="grid-text"><%= visibility %> meters</p>
+          </div>
+        </div>
+          
+
+          <% } %> <% if(error !== null){ %>
+          <p><%= error %></p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
